@@ -4,8 +4,16 @@ package concurrency.producerconsumer;
 import java.util.concurrent.ArrayBlockingQueue;
 
 public class BlockingBuffer implements Buffer {
+    
+    // need to add:
+    // Spec
+    // Abstraction Function
+    // Rep Invariant
 
-    private final ArrayBlockingQueue<Integer> buffer; // sharedvbuffer
+    // rep
+    private final ArrayBlockingQueue<Integer> buffer; // sharedbuffer
+    
+    // Constructor
     public BlockingBuffer() {
         buffer = new ArrayBlockingQueue<Integer>(1);
     }
