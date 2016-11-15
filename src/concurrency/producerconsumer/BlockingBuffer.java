@@ -5,10 +5,10 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 public class BlockingBuffer implements Buffer {
     
-    // need to add:
-    // Spec
+    // need to add to Spec:
     // Abstraction Function
     // Rep Invariant
+    // Thread safety argument
 
     // rep
     private final ArrayBlockingQueue<Integer> buffer; // sharedbuffer
