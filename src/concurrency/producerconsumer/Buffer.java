@@ -7,6 +7,7 @@ public interface Buffer {
     public static  Buffer makeBuffer() {
 //        return new UnsynchronizedBuffer();
         return new BlockingBuffer();
+//        return new SynchronizedBuffer();
     }
 
     // place int value into Buffer
