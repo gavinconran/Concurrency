@@ -5,7 +5,8 @@ public interface Buffer {
     
     // Factory method
     public static  Buffer makeBuffer() {
-        return new UnsynchronizedBuffer();
+//        return new UnsynchronizedBuffer();
+        return new BlockingBuffer();
     }
 
     // place int value into Buffer
