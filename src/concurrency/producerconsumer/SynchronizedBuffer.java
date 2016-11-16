@@ -50,8 +50,8 @@ public class SynchronizedBuffer implements Buffer {
     
     // display current operation and buffer state
     public void displayState( String operation ) {
-    System.out.printf( "%-40s%d\t\t%b\n\n", operation, buffer,
-    occupied );
+        System.out.printf( "%-40s%d\t\t%b\n\n", operation, buffer,
+                occupied );
     } // end method displayState
 
 }
