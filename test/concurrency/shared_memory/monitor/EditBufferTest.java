@@ -1,9 +1,12 @@
-package mit6005.fa16.reading23.editor;
+package concurrency.shared_memory.monitor;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import concurrency.shared_memory.monitor.EditBuffer;
+import concurrency.shared_memory.monitor.Editor;
 
 /**
  * This class contains test cases for the EditBuffer interface.

@@ -1,4 +1,4 @@
-package concurrency.producerconsumer;
+package concurrency.mesage_passing.producer_consumer;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

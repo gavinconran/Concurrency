@@ -1,4 +1,4 @@
-package concurrency.producerconsumer;
+package concurrency.mesage_passing.producer_consumer;
 //Synchronizing access to shared data using Object
 //methods wait and notifyAll.
 

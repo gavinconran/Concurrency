@@ -1,4 +1,7 @@
-package mit6005.fa16.reading23.editor;
+package concurrency.shared_memory.monitor;
+
+import concurrency.shared_memory.monitor.EditBuffer;
+import concurrency.shared_memory.monitor.GapBuffer;
 
 public class GapBufferTest extends EditBufferTest {    
     /** @see EditBufferTest#make */

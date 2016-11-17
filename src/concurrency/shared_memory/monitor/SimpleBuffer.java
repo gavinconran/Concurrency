@@ -1,4 +1,4 @@
-package mit6005.fa16.reading23.editor;
+package concurrency.shared_memory.monitor;
 
 /**
  * SimpleBuffer is a threadsafe EditBuffer with a simple rep.

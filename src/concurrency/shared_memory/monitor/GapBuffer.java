@@ -1,4 +1,4 @@
-package mit6005.fa16.reading23.editor;
+package concurrency.shared_memory.monitor;
 
 /**
  * GapBuffer is a non-threadsafe EditBuffer that is optimized for editing with a 
@@ -33,7 +33,7 @@ public class GapBuffer implements EditBuffer {
     }
     
     /** @see EditBuffer#insert */
-    public void insert(int pos, String s) {
+    public synchronized void insert(int pos, String s) {
         int len = s.length();
         moveGap(pos, len);
         s.getChars(0, len, a, gapStart);
@@ -43,19 +43,19 @@ public class GapBuffer implements EditBuffer {
     }
 
     /** @see EditBuffer#delete */
-    public void delete(int pos, int len) {
+    public synchronized void delete(int pos, int len) {
         moveGap(pos, 0);
         gapLength += len;
         checkRep();
     }
 
     /** @see EditBuffer#length */
-    public int length() {
+    public synchronized int length() {
         return a.length - gapLength;
     }
 
     /** @see EditBuffer#toString */
-    public String toString() {
+    public synchronized String toString() {
         char[] result = new char[a.length-gapLength];
         // copy the part of a before the gap)
         System.arraycopy(a, 0, result, 0, gapStart);
@@ -71,7 +71,7 @@ public class GapBuffer implements EditBuffer {
      * Effects: after this method returns, gapStart == newGapStart and gapLength >= minGapLength,
      * but the text sequence represented by the buffer is unchanged.
      */
-    private void moveGap(int newGapStart, int minGapLength) {
+    private synchronized void moveGap(int newGapStart, int minGapLength) {
         String oldText = null; // used for debugging, only if asserts are turned on
         assert (oldText = toString()) != null;
         

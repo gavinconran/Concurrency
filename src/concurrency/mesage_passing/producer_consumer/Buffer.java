@@ -1,4 +1,4 @@
-package concurrency.producerconsumer;
+package concurrency.mesage_passing.producer_consumer;
 // Buffer interface specifies methods called by Producer and Consumer
 
 public interface Buffer {

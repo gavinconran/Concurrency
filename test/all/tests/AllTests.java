@@ -4,10 +4,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import concurrency.shared_memory.monitor.GapBufferTest;
+import concurrency.shared_memory.monitor.SimpleBufferTest;
 import concurrency.synchronize.SharedArrayTestTest;
 import concurrency.synchronize.SimpleArrayTest;
-import mit6005.fa16.reading23.editor.GapBufferTest;
-import mit6005.fa16.reading23.editor.SimpleBufferTest;
 
 
 @RunWith(Suite.class)

@@ -1,4 +1,4 @@
-package concurrency.producerconsumer;
+package concurrency.mesage_passing.producer_consumer;
 //Synchronizing access to a shared integer using the Lock and Condition
 //interfaces in place of using synchronize keyword
 

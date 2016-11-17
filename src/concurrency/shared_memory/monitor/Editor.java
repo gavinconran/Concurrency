@@ -1,4 +1,4 @@
-package mit6005.fa16.reading23.editor;
+package concurrency.shared_memory.monitor;
 // Atomic Operations
 
 // This method makes three different calls to buf — to convert it to a string in order to search for s, 

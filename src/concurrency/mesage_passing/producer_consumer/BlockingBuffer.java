@@ -1,4 +1,4 @@
-package concurrency.producerconsumer;
+package concurrency.mesage_passing.producer_consumer;
 //Creating a synchronized buffer using an ArrayBlockingQueue.
 
 import java.util.concurrent.ArrayBlockingQueue;

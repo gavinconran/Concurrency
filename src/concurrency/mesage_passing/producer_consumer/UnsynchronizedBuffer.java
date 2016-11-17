@@ -1,4 +1,4 @@
-package concurrency.producerconsumer;
+package concurrency.mesage_passing.producer_consumer;
 //UnsynchronizedBuffer maintains the shared integer that is accessed by
 //a producer thread and a consumer thread via methods set and get.
 

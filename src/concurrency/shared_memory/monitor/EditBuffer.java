@@ -1,4 +1,4 @@
-package mit6005.fa16.reading23.editor;
+package concurrency.shared_memory.monitor;
 
 /**
  * An EditBuffer represents a threadsafe mutable string of characters in a text editor.
