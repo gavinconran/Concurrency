@@ -1,10 +1,10 @@
-package concurrency.message_pasing.client_server.streams;
-//Server portion of a client/server stream-socket connection.
-//import java.io.EOFException;
+package sequential.message_passing.client_server.TCP;
+
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.ServerSocket;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -15,28 +15,26 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-public class Server  extends JFrame {
+public class Client extends JFrame {
     
     /**
      * 
      */
     private static final long serialVersionUID = 1L;
-    /**
-     * 
-     */
-//    private static final long serialVersionUID = 1L;
-    private JTextField enterField; // inputs message from user
+    private JTextField enterField; // enters information from user
     private JTextArea displayArea; // display information to user
-    private ObjectOutputStream output; // output stream to client
-    private ObjectInputStream input; // input stream from client
-    private ServerSocket server; // server socket
-    private Socket connection; // connection to client
-    private int counter = 1; // counter of number of connections
+    private ObjectOutputStream output; // output stream to server
+    private ObjectInputStream input; // input stream from server
+    private String message = ""; // message from server
+    private String chatServer; // host server for this application
+    private Socket client; // socket to communicate with server
     
-    // set up GUI
-    public Server() {
+    // initialize chatServer and set up GUI
+    public Client( String host ) {
         
-        super( "Server");
+        super( "Client" );
+        
+        chatServer = host;  // set server to which this client connects
         
         enterField = new JTextField(); // create enterField
         enterField.setEditable(false);
@@ -57,79 +55,70 @@ public class Server  extends JFrame {
         
         setSize( 300, 150 );  // set size of window
         setVisible( true );   // show window
-    } // end Server constructor
+    } // end Client constructor
     
-    // set up and run server
-    public void runServer() {
-        
-        try {  // set up server to receive connections; process connections
-            
-            server = new ServerSocket( 12345, 100 ); // create ServerSocket
-            
-            while ( true ) {
-                try {
-                    waitForConnection();   // wait for a connection
-                    getStreams();          // get input & output streams
-                    processConnection();   // process connection
-                } // end try
-                catch (IOException ioException ) {
-                    displayMessage( "\nServer terminated connection" );
-                } // end catch
-                finally {
-                    closeConnection();  // close connection
-                    ++counter;
-                } // end finally
-            } // end while
-            
+    // connect to server and process messages from server
+    public void runClient() {
+        try {
+            connectToServer();     // create a Socket to make connection
+            getStreams();          // get input & output streams
+            processConnection();   // process connection
         } // end try
-        catch ( IOException ioException ) {
+        catch ( EOFException eofException ) {
+            displayMessage( "\nClient terminated connection" );
+        }
+        catch (IOException ioException ) {
             ioException.printStackTrace();
         } // end catch
-        
-    } // end method runServer
+        finally {
+            closeConnection();  // close connection
+        } // end finally
+    } // end method runClient
     
-    // wait for connection to arrive, then display connection info
-    private void waitForConnection() throws IOException {
-        
-        displayMessage( "Waiting for connection\n" );
-        connection = server.accept();  // allow server to acept connection
-        displayMessage( "Connection " + counter + " received from: " + 
-                        connection.getInetAddress().getHostName());
-    } // end method
     
-    // get streams to send and receive data
+    
+    // connect to server
+    private void connectToServer() throws IOException {
+        
+        displayMessage("Attempting connection\n");
+        // create Socket to make connection to server
+        client = new Socket(InetAddress.getByName(chatServer), 12345);
+        // display connection information
+        displayMessage("Connected to: " 
+                    + client.getInetAddress().getHostName());
+    } // end method connectToServer
+    
+ // get streams to send and receive data
     private void getStreams() throws IOException {
         // set up output stream for objects
-        output = new ObjectOutputStream( connection.getOutputStream() );
+        output = new ObjectOutputStream( client.getOutputStream() );
         output.flush(); // flush output buffer to send header info
         
         // set up input stream for objects
-        input = new ObjectInputStream( connection.getInputStream() );
+        input = new ObjectInputStream( client.getInputStream() );
         
         displayMessage( "\nGot I/O streams\n" );
     } // end method getStreams
     
-    // process connection with client
+ // process connection with client
     private void processConnection() throws IOException {
-        String message = "Connection successful";
-        sendData( message );  // send connection successful message
         
         // enable enterField so server user can send messages
         setTextFieldEditable( true );
         
-        do {// process messages sent from client
-            try { // read mesage and display it
+        do {// process messages sent from server
+            try { // read message and display it
                 message = ( String ) input.readObject();  // read new message
                 displayMessage( "\n" + message );  // display message
             } // end try
             catch ( ClassNotFoundException classNotFoundException ) {
                 displayMessage( "\nUnknown object type received" );
             } // end catch
-        } while ( !message.equals( "CLIENT>>> TERMINATE" ) );
+        } while ( !message.equals( "SERVER>>> TERMINATE" ) );
         
     } // end method processConnection
     
-    // close streams and socket
+ // close streams and socket
     private void closeConnection() {
         displayMessage( "\nTerminating connection\n" );
         setTextFieldEditable( false );
@@ -137,27 +126,27 @@ public class Server  extends JFrame {
         try {
             output.close();
             input.close();
-            connection.close();
+            client.close();
         } // end try
         catch ( IOException ioException ) {
             ioException.printStackTrace();
         } // end catch
     } // end method closeConnection
     
-    // send message to client
+ // send message to server
     private void sendData(String message) {
         try // send object to client
         {
-            output.writeObject("SERVER>>> " + message);
+            output.writeObject("CLIENT>>> " + message);
             output.flush(); // flush output to client
-            displayMessage("\nSERVER>>> " + message);
+            displayMessage("\nCLIENT>>> " + message);
         } // end try
         catch (IOException ioException) {
             displayArea.append("\nError writing object");
         } // end catch
     } // end method sendData
     
-    // manipulates displayArea in the event-dispatch thread
+ // manipulates displayArea in the event-dispatch thread
     private void displayMessage(final String messageToDisplay) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() // updates displayArea
@@ -168,7 +157,7 @@ public class Server  extends JFrame {
         ); // end call to SwingUtilities.invokeLater
     } // end method displayMessage
     
-    // manipulates enterField in the event-dispatch thread
+ // manipulates enterField in the event-dispatch thread
     private void setTextFieldEditable(final boolean editable) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() // sets enterField's editability
@@ -178,5 +167,5 @@ public class Server  extends JFrame {
         } // end inner class
         ); // end call to SwingUtilities.invokeLater
     } // end method setTextFieldEditable
-    
-} // end Server class
+
+} // end class

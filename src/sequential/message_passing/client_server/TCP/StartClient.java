@@ -1,4 +1,4 @@
-package concurrency.message_pasing.client_server.streams;
+package sequential.message_passing.client_server.TCP;
 
 import javax.swing.JFrame;
 
