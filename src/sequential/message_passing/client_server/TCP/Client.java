@@ -148,6 +148,10 @@ public class Client extends JFrame {
     
  // manipulates displayArea in the event-dispatch thread
     private void displayMessage(final String messageToDisplay) {
+        // The invokeLater() drops a Runnable object at the end of the event queue, 
+        // and when Swing’s event loop reaches it, it simply calls run(). 
+        // Thus the body of run() ends up run by the event-dispatch thread, 
+        // where it can safely call observers and mutators on the view tree. 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() // updates displayArea
             {
