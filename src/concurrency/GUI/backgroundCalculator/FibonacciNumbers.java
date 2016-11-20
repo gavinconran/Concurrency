@@ -13,10 +13,13 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
-import java.util.concurrent.ExecutionException;
 
 public class FibonacciNumbers  extends JFrame {
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     // components for calculating the Fibonacci of a user entered number
     private final JPanel workerJPanel =
             new JPanel( new GridLayout( 2,2,5, 5) );

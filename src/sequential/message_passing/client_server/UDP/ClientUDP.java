@@ -16,6 +16,10 @@ import javax.swing.SwingUtilities;
 
 public class ClientUDP extends JFrame {
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private JTextField enterField; // for entering messages
     private JTextArea displayArea; // for displaying messages
     private DatagramSocket socket; // socket to connect to server
