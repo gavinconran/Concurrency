@@ -8,7 +8,7 @@ All the examples were written using Eclipse and Java 8.
 1. **Containment**
    * Example: Graphical User Interfaces, e.g. Java Swing and Android
    * Most GUI applications have a single thread, called the **_event dispatch thread_**, to handle interactions with the application's GUI components
-   * Here multi-thtreading is achieved by using **_thread confinement_**
+   * Here multi-threading is achieved by using **_thread confinement_**
    * There are three important **_Design Patterns_** used in GUI development:
       * **_View Tree_**: central feature in the architecture of most GUI toolkits
       * **_Model-View-Controller_**: Separates input, output, and data
@@ -18,12 +18,12 @@ All the examples were written using Eclipse and Java 8.
    * Recursive Data Types in Java 8 are similar to the same feature in Scala
 3. **Thread Safe Data Types**
    * Example: Library Data Structures which use the **_Shared Memory Model_** in the form of the **_Monitor Pattern_**
-   * List, Set, & HashMap are Sequential Data Types but thay all have Concurrent versions
+   * List, Set, & HashMap are Sequential Data Types but they all have Concurrent versions
    * Example: Map<Integer, Boolean> cache = Collections.synchronizedMap( new HashMap<Integer, Boolean>());
-4. **Synchronisation** (syntatic sugar for **Locks and Conditions**)
+4. **Synchronisation** (syntactic sugar for **Locks and Conditions**)
    * An example of Synchronisation is the **_Message Passing Model_** in the form of the **_Producer / Consumer Pattern_**
    * Another example of the **_Message Passing Model_** is the **_Client / Server Pattern_** found in Networking
-   * Programmers can apply a **_Monitor_** directly to a data Type by using the keyword Synchronize or by "going under the hood" and using the Lock and Condition Interfaces
+   * Programmers can apply a **_Monitor_** directly to a data Type by using the keyword "Synchronize" or by "going under the hood" and using the **_Lock_** and **_Condition_** Interfaces
    * Example: Mutable Data Structures use **_Coarse-grain locking_**
    * Example: Operating Systems use **_Fine-grain locks_** for high-performance and **_Lock Ordering_** to deal with Deadlocks
 
@@ -37,8 +37,8 @@ All the examples were written using Eclipse and Java 8.
 4. **Synchronisation: Message Passing Model**
    * Example: **_Producer / Consumer Pattern_**
    * Code example: package "concurrency.producerconsumer" which contains two main examples:
-      * SynchronizedBuffer.java       (Synchronization using keyword Synchronize)
-      * SynchronizedBufferLocks.java  (Synchronization using Locks and Conditions) 
+      * SynchronizedBuffer.java       (Synchronisation using keyword Synchronize)
+      * SynchronizedBufferLocks.java  (Synchronisation using Locks and Conditions) 
    * Another example of a Message passing Model is the Client / Server Pattern with two code examples:
       * **_Stream Socket Connections (TCP)_**: package "sequential.message_passing.client_server.TCP"
       * **_Connectionless Datagrams  (UDP)_**: package "sequential.message_passing.client_server.UDP"
