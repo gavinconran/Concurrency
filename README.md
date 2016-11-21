@@ -16,7 +16,7 @@ This repository contains code examples from **Software Construction in Java** [S
 * Cryptography
 * Agile Development using Ruby on Rails
 
-Constructing good code is a **_Mens et Manus_** discipline and if you want to be a competent programmer, I think it is important to **_Learn By Coding_**. After a while, regardless of programming languages, familiar **_Patterns_** and **_Design and Development Processes_** emerge and the art of coding begins to become natural. 
+Constructing good code is a **_Mens et Manus_** discipline and if you want to be a competent programmer, I think it is important to **_Learn By Coding_**. After a while, regardless of programming languages, familiar **_Design Patterns_** and **_Development Processes_** emerge and the art of coding begins to become natural. 
 
 All the examples were written using Java 8, Eclipse, and Git.
 
