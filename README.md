@@ -1,7 +1,24 @@
 # Concurrency in Java
-This repository contains code examples from **Software Construction in Java** [SCiJ](http://web.mit.edu/6.005/www/fa16/) and **Java: How To Program** [JHTP](https://www.pearsonhighered.com/product/Deitel-Java-How-to-Program-early-objects-9th-Edition/9780132575669.html).
+This repository contains code examples from **Software Construction in Java** [SCiJ](http://web.mit.edu/6.005/www/fa16/) and **Java: How To Program** [JHTP](https://www.pearsonhighered.com/product/Deitel-Java-How-to-Program-early-objects-9th-Edition/9780132575669.html). My work in this Repo has also acted as revision of the following MOOCs.
 
-All the examples were written using Eclipse and Java 8.
+### Software Engineering Related MOOCs
+* An Introduction to Interactive Programming in Python
+* Coding the Matrix: Linear Algebra through Computer Science Applications
+* Product Management Specialisation
+* Human-Computer Interaction
+* Startup Engineering
+* Software Defined Networks
+* Algorithms I & II
+* Programming Languages
+* Compilers
+* Functional Programming in Scala
+* Programming Mobile Applications Specialisation
+* Cryptography
+* Agile Development using Ruby on Rails
+
+Constructing good code is a **_Mens et Manus_** discipline and if you want to be a competent programmer, I think it is important to **_Learn By Coding_**. After a while, regardless of programming language, familiar **_Patterns_** and **_Design and Development Processes_** emerge and the art of coding begins to become natural. 
+
+All the examples were written using Java 8, Eclipse, and Git.
 
 ### Table of Contents
 #### There are four basic types of Concurrency found in Java:
