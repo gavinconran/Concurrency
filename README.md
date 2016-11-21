@@ -43,6 +43,8 @@ All the examples were written using Eclipse and Java 8.
    * Another example of a Message passing Model is the Client / Server Pattern with two code examples:
       * **_Stream Socket Connections (TCP)_**: package "sequential.message_passing.client_server.TCP"
       * **_Connectionless Datagrams  (UDP)_**: package "sequential.message_passing.client_server.UDP"
+   * **_Multi-threading_** Client / Server example
+      * Code example: package "concurrent.message_passing.client_server.TCP"   
 5. **Synchronisation: Shared Memory Model**
    * An example of Synchronisation in the form of the **_Monitor Pattern_**
    * Code example: package "concurrency.shared_memory.monitor"
