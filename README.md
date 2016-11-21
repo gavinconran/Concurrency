@@ -24,6 +24,7 @@ All the examples were written using Eclipse and Java 8.
    * An example of Synchronisation is the **_Message Passing Model_** in the form of the **_Producer / Consumer Pattern_**
    * Another example of the **_Message Passing Model_** is the **_Client / Server Pattern_** found in Networking
    * Programmers can apply a **_Monitor_** directly to a data Type by using the keyword "Synchronize" or by "going under the hood" and using the **_Lock_** and **_Condition_** Interfaces
+   * Programmers can apply a **_Monitor_** directly to a data Type by using the keyword Synchronize or by "going under the hood" and using the **_Lock_** and **_Condition_** Interfaces
    * Example: Mutable Data Structures use **_Coarse-grain locking_**
    * Example: Operating Systems use **_Fine-grain locks_** for high-performance and **_Lock Ordering_** to deal with Deadlocks
 
