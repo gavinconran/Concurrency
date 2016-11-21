@@ -8,10 +8,10 @@ All the examples were written using Eclipse and Java 8.
 1. **Containment**
    * Example: Graphical User Interfaces, e.g. Java Swing and Android
    * Most GUI applications have a single thread, called the **_event dispatch thread_**, to handle interactions with the application's GUI components
-   * Here multi-threading is achieved by using **_thread confinement_**
+   * Here multi-threading is achieved by using **_thread containment_**
    * There are three important **_Design Patterns_** used in GUI development:
       * **_View Tree_**: central feature in the architecture of most GUI toolkits
-      * **_Model-View-Controller_**: Separates input, output, and data
+      * **_Model-View-Controller_**: Separates data, output, and input
       * **_Listener_**: Decouples the model from the View and Controller
 2. **Immutability**
    * Example: Local Search which uses Recursive Data Types
