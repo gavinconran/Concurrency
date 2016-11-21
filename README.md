@@ -40,7 +40,7 @@ All the examples were written using Eclipse and Java 8.
    * Code example: package "concurrency.producerconsumer" which contains two main examples:
       * SynchronizedBuffer.java       (Synchronisation using keyword Synchronize)
       * SynchronizedBufferLocks.java  (Synchronisation using Locks and Conditions) 
-   * Another example of a Message passing Model is the Client / Server Pattern with two code examples:
+   * Another example of a Message passing Model is the **_Client / Server Pattern_** with two code examples (Non Multi-threading):
       * **_Stream Socket Connections (TCP)_**: package "sequential.message_passing.client_server.TCP"
       * **_Connectionless Datagrams  (UDP)_**: package "sequential.message_passing.client_server.UDP"
    * **_Multi-threading_** Client / Server example
