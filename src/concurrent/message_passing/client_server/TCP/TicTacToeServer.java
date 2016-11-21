@@ -29,7 +29,7 @@ public class TicTacToeServer extends JFrame {
     private ServerSocket server; // server socket to connect with clients
     private int currentPlayer; // keeps track of player with current move
     private final static int PLAYER_X = 0; // constant for first player
-    private final static int PLAYER_O = 1; // constant for second player
+//    private final static int PLAYER_O = 1; // constant for second player
     private final static String[] MARKS = { "X", "O" }; // array of marks
     private ExecutorService runGame; // will run players
     private Lock gameLock; // to lock game for synchronization

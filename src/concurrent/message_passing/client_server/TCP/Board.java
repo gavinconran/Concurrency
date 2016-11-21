@@ -7,10 +7,13 @@ public interface Board {
         return new TicTacToeBoard();
     }
     
+    // determine whether location is occupied
     public boolean isOccupied( int location );
     
-    public boolean isGameOver();
-    
+    // set a move on the board
     public void setMove( int location, String mark );
+    
+    // Determine whether game over
+    public boolean isGameOver();
 
 }

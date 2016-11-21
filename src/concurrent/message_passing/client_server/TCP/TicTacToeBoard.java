@@ -13,14 +13,14 @@ public class TicTacToeBoard implements Board {
     // Rep Invariant
     // CheckRep()
     
-    
+    // Constructor
     public TicTacToeBoard() {
         for ( int i = 0; i < 9; i++ )
             board[ i ] = new String( "" ); // create tic-tac-toe board
     }
 
     @Override
- // determine whether location is occupied
+    // determine whether location is occupied
     public boolean isOccupied( int location ) {
         if ( board[ location ].equals( MARKS[ PLAYER_X ] ) ||
                 board [ location ].equals( MARKS[ PLAYER_O ] ) )
@@ -30,12 +30,13 @@ public class TicTacToeBoard implements Board {
     } // end method isOccupied
     
     @Override
+    // set a move on the board
     public void setMove( int location, String mark ) {
         board[ location ] = mark;        
     }
 
     @Override
-    // place code in this method to determine whether game over
+    // Determine whether game over
     public boolean isGameOver() {
         return false; // this is left as an exercise
     } // end method isGameOver
