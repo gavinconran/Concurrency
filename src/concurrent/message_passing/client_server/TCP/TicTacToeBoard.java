@@ -5,18 +5,23 @@ public class TicTacToeBoard implements Board {
     private final static int PLAYER_X = 0; // constant for first player
     private final static int PLAYER_O = 1; // constant for second player
     private final static String[] MARKS = { "X", "O" }; // array of marks
-    
+        
     // Spec:
     // Rep
-    private String[] board = new String[ 9 ]; // tic-tac-toe board
+    private String[] board;; // tic-tac-toe board
+    private int countMoves;
     // Abstract Function
+        // Represents all the valid moves made by both Players in the form of "marks"
     // Rep Invariant
-    // CheckRep()
+        // Length of board must always be equal to squares
+        // countMoves must always be equal to or less than squares
     
     // Constructor
-    public TicTacToeBoard() {
-        for ( int i = 0; i < 9; i++ )
+    public TicTacToeBoard( int squares ) {
+        board = new String[ squares ];
+        for ( int i = 0; i < squares; i++ )
             board[ i ] = new String( "" ); // create tic-tac-toe board
+        countMoves = 0;
     }
 
     @Override
@@ -30,15 +35,23 @@ public class TicTacToeBoard implements Board {
     } // end method isOccupied
     
     @Override
-    // set a move on the board
+    // mutator: set a move on the board
     public void setMove( int location, String mark ) {
-        board[ location ] = mark;        
+        board[ location ] = mark;
+        countMoves++;
+        RepCheck();
     }
 
     @Override
     // Determine whether game over
     public boolean isGameOver() {
-        return false; // this is left as an exercise
+        return countMoves == board.length; 
     } // end method isGameOver
+    
+    // RepCheck Function
+    private void RepCheck() {
+        assert board.length == board.length; 
+        assert countMoves <= board.length;
+    }
 
 }

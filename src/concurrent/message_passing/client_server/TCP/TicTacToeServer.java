@@ -49,7 +49,7 @@ public class TicTacToeServer extends JFrame {
         otherPlayerTurn = gameLock.newCondition();
         
         // Create a new Board
-        board = Board.makeBoard();
+        board = Board.makeBoard( 9 );
         
         players = new Player[2];
         currentPlayer = PLAYER_X;
