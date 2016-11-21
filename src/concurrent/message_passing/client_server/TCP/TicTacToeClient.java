@@ -24,6 +24,10 @@ import java.util.concurrent.ExecutorService;
 //set up user-interface and board
 public class TicTacToeClient extends JFrame implements Runnable {
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private JTextField idField; // textfield to display player's mark
     private JTextArea displayArea; // JTextArea to display output
     private JPanel boardPanel; // panel for tic-tac-toe board

@@ -208,6 +208,8 @@ public class TicTacToeServer extends JFrame {
                 } // end while
             } finally {
                 try {
+                    output.format( "Game Over.\n" ); // notify client
+                    output.flush(); // flush output
                     connection.close(); // close connection
                 } catch ( IOException ioException ) {
                     ioException.printStackTrace();
