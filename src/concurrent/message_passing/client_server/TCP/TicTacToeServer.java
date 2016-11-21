@@ -22,7 +22,8 @@ public class TicTacToeServer extends JFrame {
      * 
      */
     private static final long serialVersionUID = 1L;
-    private String[] board = new String[ 9 ]; // tic-tac-toe board
+    
+    private Board board; // (tic-tac-toe) board
     private JTextArea outputArea; // for outputting moves
     private Player[] players; // array of Players
     private ServerSocket server; // server socket to connect with clients
@@ -47,9 +48,9 @@ public class TicTacToeServer extends JFrame {
         // condition variable for the other player's turn
         otherPlayerTurn = gameLock.newCondition();
         
+        // Create a new Board
+        board = Board.makeBoard();
         
-        for ( int i = 0; i < 9; i++ )
-            board[ i ] = new String( "" ); // create tic-tac-toe board
         players = new Player[2];
         currentPlayer = PLAYER_X;
         
@@ -106,8 +107,8 @@ public class TicTacToeServer extends JFrame {
         } // end while
         
         // if location not occupied, make move
-        if ( !isOccupied( location ) ) {
-            board[ location ] = MARKS[ currentPlayer ]; // set move on board
+        if ( !board.isOccupied( location ) ) {
+            board.setMove(location, MARKS[ currentPlayer ]);
             currentPlayer = ( currentPlayer + 1 ) % 2; // change player
             // let new current player know that move occurred
             players[ currentPlayer ].otherPlayerMoved( location );
@@ -123,20 +124,6 @@ public class TicTacToeServer extends JFrame {
             return false; // notify player that move is not valid
         } 
     } // end method validateAndMove
-    
-    // determine whether location is occupied
-    public boolean isOccupied( int location ) {
-        if ( board[ location ].equals( MARKS[ PLAYER_X ] ) ||
-                board [ location ].equals( MARKS[ PLAYER_O ] ) )
-            return true; // location is occupied
-        else
-            return false; // location is not occupied
-    } // end method isOccupied
-    
-    // place code in this method to determine whether game over
-    public boolean isGameOver() {
-        return false; // this is left as an exercise
-    } // end method isGameOver
     
     // private inner class Player manages each Player as a runnable
     private class Player implements Runnable {
@@ -202,7 +189,7 @@ public class TicTacToeServer extends JFrame {
                 } // end if else
                 
                 // while game not over
-                while ( !isGameOver() ) {
+                while ( !board.isGameOver() ) {
                     
                     int location = 0; // initialise move location
                     
