@@ -35,7 +35,7 @@ All the examples were written using Java 8, Eclipse, and Git.
    * Recursive Data Types in Java 8 are similar to the same feature in Scala
    * Two important Design Patterns used in constructing Recursive Data Types:
       * **_Interpreter Pattern_**: pattern of implementing an operation over a recursive data type
-      * **_Sentinal Objects Pattern: to signal the base case or end-point of a data structure 
+      * **_Sentinal Objects Pattern_**: to signal the base case or end-point of a data structure 
 3. **Thread Safe Data Types**
    * Example: Library Data Structures which use the **_Shared Memory Model_** in the form of the **_Monitor Pattern_**
    * List, Set, & HashMap are Sequential Data Types but they all have Concurrent versions
