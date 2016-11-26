@@ -8,10 +8,12 @@ import concurrency.shared_memory.monitor.GapBufferTest;
 import concurrency.shared_memory.monitor.SimpleBufferTest;
 import concurrency.synchronize.SharedArrayTestTest;
 import concurrency.synchronize.SimpleArrayTest;
+import recursion.datatypes.ImListTest;
 
 
 @RunWith(Suite.class)
-@SuiteClasses({ SharedArrayTestTest.class, SimpleArrayTest.class, GapBufferTest.class, SimpleBufferTest.class })
+@SuiteClasses({ SharedArrayTestTest.class, SimpleArrayTest.class, 
+    GapBufferTest.class, SimpleBufferTest.class, ImListTest.class })
 public class AllTests {
 
 }

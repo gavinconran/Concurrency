@@ -31,8 +31,11 @@ All the examples were written using Java 8, Eclipse, and Git.
       * **_Model-View-Controller_**: Separates data, output, and input
       * **_Listener_**: Decouples the model from the View and Controller
 2. **Immutability**
-   * Example: Local Search which uses Recursive Data Types
+   * Example: Immutable Lists
    * Recursive Data Types in Java 8 are similar to the same feature in Scala
+   * Two important Design Patterns used in constructing Recursive Data Types:
+      * **_Interpreter Pattern_**: pattern of implementing an operation over a recursive data type
+      * **_Sentinal Objects Pattern: to signal the base case or end-point of a data structure 
 3. **Thread Safe Data Types**
    * Example: Library Data Structures which use the **_Shared Memory Model_** in the form of the **_Monitor Pattern_**
    * List, Set, & HashMap are Sequential Data Types but they all have Concurrent versions
@@ -52,7 +55,9 @@ All the examples were written using Java 8, Eclipse, and Git.
    * Code example: package "concurrency.executor"
 3. **Containment**
    * Code example: package "concurrency.GUI.backgroundCalculator
-4. **Synchronisation: Message Passing Model**
+4. **Immutability**
+   * Code example: package "recursion.datatypes"   
+5. **Synchronisation: Message Passing Model**
    * Example: **_Producer / Consumer Pattern_**
    * Code example: package "concurrency.producerconsumer" which contains two main examples:
       * SynchronizedBuffer.java       (Synchronisation using keyword Synchronize)
@@ -62,7 +67,7 @@ All the examples were written using Java 8, Eclipse, and Git.
       * **_Connectionless Datagrams  (UDP)_**: package "sequential.message_passing.client_server.UDP"
    * **_Multi-threading_** Client / Server example
       * Code example: package "concurrent.message_passing.client_server.TCP"   
-5. **Synchronisation: Shared Memory Model**
+6. **Synchronisation: Shared Memory Model**
    * An example of Synchronisation in the form of the **_Monitor Pattern_**
    * Code example: package "concurrency.shared_memory.monitor"
       * Contains the method findReplace which is an example of **_Serialisability_**. Found in Editor.java

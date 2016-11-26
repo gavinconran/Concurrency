@@ -41,7 +41,6 @@ public class Cons<E> implements ImList<E> {
     
     public ImList<E> append(ImList<E> other) { return new Cons<>(e, rest.append(other)); }
     
-//    public ImList<E> reverse() { return new Cons<>(e, new Empty<E>()).append(rest.reverse()); }
     public ImList<E> reverse() { return rest.reverse().append(new Cons<>(e, new Empty<E>())); }
     
 }
