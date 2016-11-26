@@ -17,6 +17,12 @@ public class ImListTest {
         ImList<Integer> nil = ImList.empty();
         nil.rest();
     }
+    
+    @Test(expected=UnsupportedOperationException.class)
+    public void testGetOfEmpty() {
+        ImList<Integer> nil = ImList.empty();
+        nil.get(0);
+    }
 
     @Test
     public void testSize() {        
