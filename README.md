@@ -31,6 +31,7 @@ All the examples were written using Java 8, Eclipse, and Git.
       * **_Model-View-Controller_**: Separates data, output, and input
       * **_Listener_**: Decouples the model from the View and Controller
 2. **Immutability**
+   * Ideal for concurrency because it is **_not possible to alter the Data Types_** and recursion is a special case of **_Reentrant Code_**
    * Example: Immutable Lists
    * Recursive Data Types in Java 8 are similar to the same feature in Scala
    * Two important Design Patterns used in constructing Recursive Data Types:
@@ -43,7 +44,6 @@ All the examples were written using Java 8, Eclipse, and Git.
 4. **Synchronisation** (syntactic sugar for **Locks and Conditions**)
    * An example of Synchronisation is the **_Message Passing Model_** in the form of the **_Producer / Consumer Pattern_**
    * Another example of the **_Message Passing Model_** is the **_Client / Server Pattern_** found in Networking
-   * Programmers can apply a **_Monitor_** directly to a data Type by using the keyword "Synchronize" or by "going under the hood" and using the **_Lock_** and **_Condition_** Interfaces
    * Programmers can apply a **_Monitor_** directly to a data Type by using the keyword Synchronize or by "going under the hood" and using the **_Lock_** and **_Condition_** Interfaces
    * Example: Mutable Data Structures use **_Coarse-grain locking_**
    * Example: Operating Systems use **_Fine-grain locks_** for high-performance and **_Lock Ordering_** to deal with Deadlocks
